@@ -26,7 +26,7 @@ while breaker:
     # input is too low
     elif int(guess) < answer:
         print("TOO LOW")
-        # increment the counter
+        # increment the counter of the guesses
         guesses += 1
     # input is too high
     elif int(guess) > answer:
