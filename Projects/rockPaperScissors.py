@@ -18,7 +18,14 @@ if player not in options:
 # check the winning condtions
 if player == computer:
     print("Tie!!")
-elif (player == "rock" and computer == "paper") or (player == "scissors" and computer == "rock"):
-    print("You lose")
-elif (player == "rock" and computer == "scissors") or (player == "paper" and computer  == "rock"):
+elif player == "rock" and computer == "scissors":
     print("You win")
+elif player == "paper" and computer  == "rock":
+    print("You win")
+elif player == "scissors" and computer == "paper":
+    print("You win")
+else:
+    print("You lose")
+
+# print the computer choice
+print(computer)
