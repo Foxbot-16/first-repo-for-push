@@ -6,8 +6,6 @@ player = None
 options = ["rock", "paper", "scissors"]
 breaker = "p"
 
-
-
 # print the decorative text
 print("**************************************")
 
