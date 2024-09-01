@@ -34,7 +34,7 @@ while breaker == "p":
         print("You lose ❌")
 
     # print the computer choice
-    print(f"Computer choice : {computer}")
+    print(f"Computer choice is: {computer}")
 
     # play again option
     breaker = input("Press P to play again or Q to quit\n").lower()
