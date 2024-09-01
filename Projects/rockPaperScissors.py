@@ -6,8 +6,7 @@ player = None
 options = ["rock", "paper", "scissors"]
 breaker = "p"
 
-# generate the randonm symbol
-computer = random.choice(options)
+
 
 # print the decorative text
 print("**************************************")
@@ -20,6 +19,9 @@ while breaker == "p":
     # check if the input is valid
     if player not in options:
         print("Not a valid input")
+
+    # generate the randonm symbol
+    computer = random.choice(options)
 
     # check the winning condtions
     if player == computer:
