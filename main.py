@@ -1,3 +1,8 @@
-fruits = ["apple", "banana", "water"]
-fruits[0] = "ice"
-print(fruits)
+def add(*args):
+    total = 0
+    for arg in args:
+        total += arg
+    return total
+
+
+print(add(1, 2, 3, 5))
