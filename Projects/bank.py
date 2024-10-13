@@ -61,7 +61,7 @@ def withdraw(value):
 
 def deposit(balance):
     # ask the amount to deposit
-    plus = input("Enter the amount to deposit: ")
+    plus = int(input("Enter the amount to deposit: "))
     # return the total
     return f"New account balnance: {balance + plus}$"
 
