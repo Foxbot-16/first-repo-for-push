@@ -13,46 +13,44 @@ people = {"John": 1200,
 # create the function to interact with the user
 def main():
     # welcome message
-    print("***** Welcome to the bank *****")
+    print("******* Welcome to the bank *******")
     # get the username
     username = input("Insert the username: ").lower()
     # check if the username is in the database
-    print(database(username))
+    if database(username) == "Username found":
+        print(database(username))
+        
 
-    # get the balance of the user
-    balance = int(0)
-    for key, value in people.items():
-        if username == key.lower():
-            balance = value
-    print(balance)
-    # ask the user the opertaion they want to do
-    print("----- Select the operation you want to do -----")
-    print("1. Check balance")
-    print("2. Witdraw")
-    print("3. Deposit")
-    option = input(">>> ")
-    # address to the according function
-    match option:
-        case "1":
-            print(f"Current balance: {checker(username)}$")
-        case "2":
-            print(withdraw())
-        case "3":
-            deposit()
+        # ask the user the opertaion they want to do
+        print("----- Select the operation you want to do -----")
+        print("1. Check balance")
+        print("2. Witdraw")
+        print("3. Deposit")
+        option = input(">>> ")
+        # address to the according function
+        match option:
+            case "1":
+                # get the balance of the user
+                balance = int(0)
+                for key, value in people.items():
+                    if username == key.lower():
+                        balance = value
+                print(f"Current balance: {balance}$")
+            case "2":
+                print(withdraw(balance))
+            case "3":
+                deposit()
+    else:
+        print("Username not found")
 
 # create a function checking if the username is in the database
 def database(username):
+    # iterate thorug the database
     for key in people.keys():
+        # check if the username is in the database
         if username == key.lower():
             return "Username found"
-        else:
-            return "Username not found"
 
-#user balance checker
-def checker(username):
-    for key, value in people.items():
-        if username == key.lower():
-            return value
 
 def withdraw():
     amount = int(input("Select the amount to withdraw: "))
