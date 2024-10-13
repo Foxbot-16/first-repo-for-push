@@ -27,19 +27,19 @@ def main():
         print("2. Witdraw")
         print("3. Deposit")
         option = input(">>> ")
+        # get the balance of the user
+        balance = int(0)
+        for key, value in people.items():
+            if username == key.lower():
+                balance = value
         # address to the according function
         match option:
             case "1":
-                # get the balance of the user
-                balance = int(0)
-                for key, value in people.items():
-                    if username == key.lower():
-                        balance = value
                 print(f"Current balance: {balance}$")
             case "2":
                 print(withdraw(balance))
             case "3":
-                deposit()
+                print(deposit(balance))
     else:
         print("Username not found")
 
@@ -51,19 +51,20 @@ def database(username):
         if username == key.lower():
             return "Username found"
 
-
-def withdraw():
+def withdraw(value):
     amount = int(input("Select the amount to withdraw: "))
     # print the remaining balance
-    for value in people.values():
-        #check if the requested balance is avialable
-        if amount > value:
-            return "Not enough balance"
-        else:
-            return f"Remaining balance {value - amount}"
+    if amount > value:
+        return "Not enough balance"
+    else:
+        return f"Remaining balance {value - amount}$"
 
-def deposit():
-    pass
+def deposit(balance):
+    # ask the amount to deposit
+    plus = input("Enter the amount to deposit: ")
+    # return the total
+    return f"New account balnance: {balance + plus}$"
+
 
 if __name__ == "__main__":
     main()
